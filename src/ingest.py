@@ -10,8 +10,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain.embeddings import OpenAIEmbeddings
 
-from dotenv import load_dotenv
-
+#from dotenv import load_dotenv
+from apykey import apikey
 
 def extract_metadata_from_pdf(file_path: str) -> dict:
     with open(file_path, "rb") as pdf_file:
@@ -109,7 +109,8 @@ def text_to_docs(text: List[str], metadata: Dict[str, str]) -> List[Document]:
 
 
 if __name__ == "__main__":
-    load_dotenv()
+    #load_dotenv()
+    os.environ['OPENAI_API_KEY'] = apikey   
 
     # Step 1: Parse PDF
     file_path = "src/data/april-2023.pdf"

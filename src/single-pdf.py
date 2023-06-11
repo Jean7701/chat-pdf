@@ -3,7 +3,8 @@ from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chains import ConversationalRetrievalChain
 from langchain.schema import HumanMessage, AIMessage
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
+import apikey import apikey
 
 
 def make_chain():
@@ -29,7 +30,8 @@ def make_chain():
 
 
 if __name__ == "__main__":
-    load_dotenv()
+    #load_dotenv()
+    os.environ['OPENAI_API_KEY'] = apikey   
 
     chain = make_chain()
     chat_history = []
